@@ -58,10 +58,8 @@ public class TemaController {
 		return temaRepository.findById(tema.getId())
 				.map(resposta -> {
 					return ResponseEntity.ok().body(temaRepository.save(tema));
-				})
-				.orElse(ResponseEntity.notFound().build());
-
-	}
+				}).orElse(ResponseEntity.notFound().build());
+		}
 
 	@DeleteMapping("/{id}")
 	public ResponseEntity<?> deletePostagem(@PathVariable long id) {
